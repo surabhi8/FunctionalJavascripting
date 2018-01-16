@@ -9,8 +9,6 @@ function repeat(operation, num){
 function incrementVariable(){
   i = i+1;
 }
-module.exports = repeat;
-/*{
 repeat(incrementVariable, 10)
-console.log("The function is a high order function?",i===10)
-}*/
+//module.exports = repeat;
+console.log("The function works as functiona;  ?",i===10)
