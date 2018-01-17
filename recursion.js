@@ -1,27 +1,24 @@
+let count=0;
 function reduce(arr, fn, initial) {
-  let prev = initial;
-  let cur = arr[0];
-  if(arr.length===0){
-    return initial;
-  }else{
-    initial = fn(prev,cur)
-    return reduce(arr.slice(1),fn,initial)
-  }
+  count = 0;
+  let max = arr.length-1;
+  return (function reducer(i,prev){
 
+    if(i>max){
+      return prev;
+    }  count++;
+    let reduced = fn(prev,arr[i],i,arr)
+    return reducer(i+1,reduced);
+  })(0,initial);
 }
-
-reduce([1,2,3], function(prev, curr) {
-  return prev + curr
-}, 0)
-
 module.exports = reduce
 
 {
-  console.log("Reduce function works?", reduce([1,2,3], function(prev, curr) {
+  console.log("The reduce() method reduces the array to a single value.?", reduce([1,2,3], function(prev, curr) {
     return prev + curr  }, 0)===6)
 }
 
 {
-  console.log("Reduce function works for empty array?", reduce([], function(prev, curr) {
-    return prev + curr  }, 0)===0)
+  console.log("The reduce() method executes a provided function for each value of the array?", reduce([1,2], function(prev, curr) {
+    return prev + curr  }, 0),count===2)
 }

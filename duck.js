@@ -19,3 +19,8 @@ module.exports = duckCount
   let duck2 = {quack: true}
   console.log("The number of objects that has quack property is?",duckCount(duck1,duck2)===2)
 }
+{
+  let notDuck = Object.create({quack: true})
+
+  console.log("The number of objects that has quack property is?",duckCount(notDuck,notDuck)===0)
+}
