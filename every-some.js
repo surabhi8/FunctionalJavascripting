@@ -1,16 +1,17 @@
 
 function checkUsersValid(goodUsers) {
-  return function allUsersValid(submittedUsers) {
-        return submittedUsers.every(function(submitUsers){
-          return goodUsers.some(function(user){
-            return user.id===submitUsers.id
-            })
-        })
-     };
-   }
+    return function allUsersValid(submittedUsers) {
+        return submittedUsers.every((submitUsers) => {
+            return goodUsers.some((user) => {
+                return user.id === submitUsers.id;
+            });
+        });
+    };
+}
 
-   module.exports = checkUsersValid
-   /*let goodUsers = [
+module.exports = checkUsersValid;
+
+/* let goodUsers = [
       { id: 1 },
       { id: 2 },
       { id: 3 }
